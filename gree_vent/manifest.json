@@ -1,0 +1,9 @@
+{
+    "domain": "gree_vent",
+    "name": "Gree_Ventilation",
+    "requirements": [
+      "pyserial==3.5"
+    ],
+    "iot_class": "local_polling",
+    "version": "0.1.0"
+  }

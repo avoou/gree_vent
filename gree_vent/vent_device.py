@@ -94,10 +94,25 @@ class FHBQDVentilation:
         check = self.get_dic(self.read_serial(SRL, 'revise'))
         del check[16]
 
-        if send[9] == check[9] and send[10] == check[10] and send[13] == check[13]:
+        j = 4
+        sum_check_byte = 0
+        diff = []
+        while j < 16:
+            if check[j] == send[j]: 
+                sum_check_byte += 1
+            else: 
+                diff.append(j)
+            j += 1
+        
+        if sum_check_byte == 12: 
             ch_ret = 'OK'
         else: 
             ch_ret = 'ERROR'
+
+        #if send[9] == check[9] and send[10] == check[10] and send[13] == check[13]:
+            #ch_ret = 'OK'
+        #else: 
+            #ch_ret = 'ERROR'
         
         return ch_ret
 
